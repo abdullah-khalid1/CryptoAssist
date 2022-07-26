@@ -1,10 +1,17 @@
 import React from "react";
+import { Switch, Router, Link } from "react-router-dom";
+import { Layout, Typography, Space } from "antd";
+import {NavBar} from './components';
 
 
 const App = () => {
   return (
-      <div>
-      <h1>Hello</h1>
+      <div className="app">
+        <div className="navBar">
+            <NavBar />
+        </div>
+        <div className="main"></div>
+        <div className="footer"></div>
       </div>
   )
 }
