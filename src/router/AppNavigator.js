@@ -1,19 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, CryptoCurrency, CryptoCurrencyDetail } from "../Pages/index";
 import SideBar from "../components/SideBar/SideBar";
-import "../App.css";
+import Box from "@mui/material/Box";
+
 import CryptoNews from "../Pages/CryptoNews/CryptoNews";
 import CryptoNewsDetail from "../components/CryptoNews/CryptoNewsDetail";
 
 function AppNavigator() {
   return (
-    <div>
-      <BrowserRouter>
-        <div className="navbar">
-          <SideBar />
-        </div>
+    <BrowserRouter>
+      <Box sx={{ display: "flex" }}>
+        <SideBar />
 
-        <div className="main">
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        >
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/cryptocurrency" element={<CryptoCurrency />} />
@@ -21,9 +23,9 @@ function AppNavigator() {
             <Route exact path="/news" element={<CryptoNews />} />
             <Route exact path="/newsDetail" element={<CryptoNewsDetail />} />
           </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+        </Box>
+      </Box>
+    </BrowserRouter>
   );
 }
 

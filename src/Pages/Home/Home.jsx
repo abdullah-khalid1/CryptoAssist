@@ -5,17 +5,17 @@ import { Grid } from "@material-ui/core";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Grid container direction="column">
-        <Grid item xs={9}>
+        <Grid item xs={12}>
           <CryptoStats />
         </Grid>
 
-        <Grid item xs={9}>
+        <Grid item xs={12}>
           <CryptoCurrency isActive={true} />
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 };
 

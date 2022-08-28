@@ -4,7 +4,7 @@ import CryptoNewsItem from "../../components/CryptoNews/CryptoNewsItem";
 import { useGetCryptoNewsQuery } from "../../redux/services/newsApi";
 
 const CryptoNews = () => {
-  const { data: newsList, loading, error } = useGetCryptoNewsQuery("crypto");
+  const { data: newsList, loading } = useGetCryptoNewsQuery("crypto");
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ const CryptoNews = () => {
   console.log(news);
 
   return (
-    <Box sx={{ width: "80%", margin: "auto" }}>
-      <Grid container rowSpacing={1} columnSpacing={4}>
+    <Box sx={{ width: "100%" }}>
+      <Grid container rowSpacing={3} columnSpacing={2}>
         {news?.map((newsItem) => (
           <CryptoNewsItem
             title={newsItem.title}

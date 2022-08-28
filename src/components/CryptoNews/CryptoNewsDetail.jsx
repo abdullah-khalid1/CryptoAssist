@@ -20,7 +20,7 @@ const CryptoNewsDetail = ({
   const mSource = location.state.source;
   const mpublishedAt = location.state.publishedAt;
   return (
-    <Box sx={{ width: "80%", margin: "auto" }}>
+    <Box sx={{ width: "90%", height: "100%" }}>
       <Typography variant="h2">{mTitle}</Typography>
       <Divider />
       <Grid container rowSpacing={1} columnSpacing={4}>

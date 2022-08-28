@@ -1,21 +1,16 @@
 import { React, useState, useEffect } from "react";
 import { useGetCryptoQuery } from "../../redux/services/cryptoApi";
-import CryptoCurrencyItem from "../../components/CryptoCurrency/CryptoCurrencyItem";
+
 import SearchBar from "../../components/SearchBar/SearchBar";
-import "./CryptoCurrency.css";
+import CryptoDesignItem from "../../components/CryptoCurrency/CryptoDesignItem";
+
 import { Box, Grid } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  width: { display: "flex", width: "100%", justifyContent: "space-around" },
-});
 
 const CryptoCurrency = ({ isActive }) => {
   const { data: cryptosList, isFetching } = useGetCryptoQuery(15);
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const classes = useStyles();
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
@@ -30,25 +25,30 @@ const CryptoCurrency = ({ isActive }) => {
   if (isFetching) return "Loading...";
 
   return (
-    <Box
-      sx={{
-        width: "80%",
-        margin: "auto",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <Box style={{ width: "100%" }}>
       {isActive ? null : (
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       )}
+      {console.log(cryptos)}
 
-      <Box className={classes.width}>
+      <Box>
         <Grid container rowSpacing={3} columnSpacing={2}>
           {cryptos?.map((currency) => (
-            <CryptoCurrencyItem
-              onClick={() => {
-                console.log("hello");
-              }}
+            // <CryptoCurrencyItem
+            //   onClick={() => {
+            //     console.log("hello");
+            //   }}
+            //   title={currency?.name}
+            //   imgUrl={currency?.iconUrl}
+            //   description={currency?.name}
+            //   price={currency?.price}
+            //   marketCap={currency?.marketCap}
+            //   change={currency?.change}
+            //   currencyID={currency?.uuid}
+            //   key={currency?.uuid}
+            // />
+
+            <CryptoDesignItem
               title={currency?.name}
               imgUrl={currency?.iconUrl}
               description={currency?.name}
