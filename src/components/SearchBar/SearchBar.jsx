@@ -13,7 +13,7 @@ const SearchBar = ({ searchTearm, setSearchTerm }) => {
   const classes = useStyles();
 
   return (
-    <div style={{ width: "80%" }}>
+    <div>
       <TextField
         className={classes.titleColor}
         id="search-bar"

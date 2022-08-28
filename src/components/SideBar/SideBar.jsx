@@ -40,6 +40,7 @@ const SideBar = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
+  const drawerWidth = 240;
 
   const menuItems = [
     {
@@ -61,15 +62,26 @@ const SideBar = () => {
 
   return (
     <Drawer
-      className={classes.sideBarBackground}
-      variant="permanent"
-      classes={{ paper: classes.paper }}
+      // className={classes.sideBarBackground}
+      // variant="permanent"
+      // classes={{ paper: classes.paper }}
       PaperProps={{
         sx: {
           backgroundColor: "#264653",
           color: "white",
         },
       }}
+      // anchor="left"
+
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: drawerWidth,
+          boxSizing: "border-box",
+        },
+      }}
+      variant="permanent"
       anchor="left"
     >
       <div>
